@@ -4,9 +4,15 @@
 
 package io.husaynhakeem.products_android_architecture_components_sample.repository
 
-class BaseRepositoryImpl : BaseRepository {
+import android.arch.lifecycle.LiveData
+import io.husaynhakeem.products_android_architecture_components_sample.repository.local.LocalRepository
+import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.remote.RemoteRepository
 
-    override fun getProducts() {
+class BaseRepositoryImpl(
+        private val localRepository: LocalRepository,
+        private val remoteRepository: RemoteRepository) {
 
+    fun getProducts(): LiveData<Product> {
     }
 }

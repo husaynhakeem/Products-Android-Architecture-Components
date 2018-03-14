@@ -25,3 +25,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    roomVersion = '1.0.0'
+    retrofitVersion = '2.3.0'
+    okhttpLoggingInterceptorVersion = '3.9.1'
+}
