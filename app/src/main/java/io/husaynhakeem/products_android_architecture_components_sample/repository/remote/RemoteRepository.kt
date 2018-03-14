@@ -11,7 +11,7 @@ import io.husaynhakeem.products_android_architecture_components_sample.repositor
 
 class RemoteRepository : BaseRepository {
 
-    override fun getProducts(): LiveData<Product> {
+    override fun getProducts(): LiveData<List<Product>> {
         return MutableLiveData()
     }
 }

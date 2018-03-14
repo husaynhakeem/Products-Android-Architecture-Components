@@ -8,11 +8,22 @@ import android.arch.lifecycle.LiveData
 import io.husaynhakeem.products_android_architecture_components_sample.repository.local.LocalRepository
 import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
 import io.husaynhakeem.products_android_architecture_components_sample.repository.remote.RemoteRepository
+import java.util.concurrent.Executor
 
-class BaseRepositoryImpl(
+class ProductsRepository(
         private val localRepository: LocalRepository,
-        private val remoteRepository: RemoteRepository) {
+        private val remoteRepository: RemoteRepository,
+        private val executor: Executor) {
 
-    fun getProducts(): LiveData<Product> {
+    fun getProducts(): LiveData<List<Product>> {
+        refreshProducts()
+        return localRepository.getProducts()
+    }
+
+    private fun refreshProducts() {
+        executor.execute {
+            val products = remoteRepository.getProducts()
+            products.value?.toTypedArray()?.let { localRepository.saveProducts(it) }
+        }
     }
 }

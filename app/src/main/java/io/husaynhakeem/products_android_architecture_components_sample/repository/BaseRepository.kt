@@ -9,5 +9,5 @@ import io.husaynhakeem.products_android_architecture_components_sample.repositor
 
 interface BaseRepository {
 
-    fun getProducts(): LiveData<Product>
+    fun getProducts(): LiveData<List<Product>>
 }

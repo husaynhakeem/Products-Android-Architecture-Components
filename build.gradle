@@ -27,6 +27,8 @@ task clean(type: Delete) {
 }
 
 ext {
+    supportVersion = '27.1.0'
+    koinversion = '0.9.1'
     roomVersion = '1.0.0'
     retrofitVersion = '2.3.0'
     okhttpLoggingInterceptorVersion = '3.9.1'
