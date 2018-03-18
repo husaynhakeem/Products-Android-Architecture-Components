@@ -9,6 +9,7 @@ import io.husaynhakeem.products_android_architecture_components_sample.repositor
 import io.husaynhakeem.products_android_architecture_components_sample.repository.local.ProductsDatabase
 import io.husaynhakeem.products_android_architecture_components_sample.repository.remote.RemoteRepository
 import io.husaynhakeem.products_android_architecture_components_sample.repository.remote.WebService
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.ConnectivityAgent
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.applicationContext
 import retrofit2.Retrofit
@@ -20,7 +21,9 @@ import java.util.concurrent.Executors
 private const val BASE_URL = "https://www.datakick.org/api/"
 
 val repositoryModule = applicationContext {
-    bean { ProductsRepository(get(), get(), get()) }
+    bean { ProductsRepository(get(), get(), get(), get()) }
+
+    bean { ConnectivityAgent(androidApplication()) }
     bean { Executors.newSingleThreadExecutor() as Executor }
 
     bean { LocalRepository(get()) }

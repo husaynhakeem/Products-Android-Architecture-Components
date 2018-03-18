@@ -15,7 +15,6 @@ class EmptyProductsMessagesTimer(
         private val emptyMessageTextView: TextView
 ) : CountDownTimer(LOADING_MESSAGE_TOTAL_DURATION, LOADING_MESSAGE_INDIVIDUAL_DURATION) {
 
-
     private val MESSAGES = arrayOf(
             context.getString(R.string.products_empty_message_0),
             context.getString(R.string.products_empty_message_1),
