@@ -31,5 +31,6 @@ ext {
     koinversion = '0.9.1'
     roomVersion = '1.0.0'
     retrofitVersion = '2.3.0'
+    picassoVersion = '2.71828'
     okhttpLoggingInterceptorVersion = '3.9.1'
 }

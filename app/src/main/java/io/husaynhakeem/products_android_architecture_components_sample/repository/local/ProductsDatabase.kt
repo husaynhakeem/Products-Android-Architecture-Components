@@ -7,14 +7,27 @@ package io.husaynhakeem.products_android_architecture_components_sample.reposito
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import android.content.Context
 
-@Database(entities = arrayOf(Product::class), version = 1)
+@Database(entities = [(Product::class)], version = 1, exportSchema = false)
+@TypeConverters(ListTypeConverter::class)
 abstract class ProductsDatabase : RoomDatabase() {
 
     abstract fun productsDao(): ProductsDao
 
     companion object {
-        fun instance(context: Context): ProductsDatabase = Room.databaseBuilder(context, ProductsDatabase::class.java, "products.db").build()
+        private var INSTANCE: ProductsDatabase? = null
+        fun instance(context: Context): ProductsDatabase {
+            synchronized(ProductsDatabase::class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context,
+                            ProductsDatabase::class.java,
+                            "products.db")
+                            .build()
+                }
+                return INSTANCE!!
+            }
+        }
     }
 }

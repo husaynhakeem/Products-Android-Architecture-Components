@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Products-Android-Architecture-Components-Sample</string>
+    <string name="products_empty_message">No products. Try again later</string>
 </resources>
