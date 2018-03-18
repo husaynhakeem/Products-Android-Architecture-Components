@@ -6,12 +6,11 @@ package io.husaynhakeem.products_android_architecture_components_sample.reposito
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import io.husaynhakeem.products_android_architecture_components_sample.repository.BaseRepository
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 
-class RemoteRepository : BaseRepository {
+class RemoteRepository {
 
-    override fun getProducts(): LiveData<List<Product>> {
+    fun getProducts(): LiveData<List<Product>> {
         return MutableLiveData()
     }
 }
