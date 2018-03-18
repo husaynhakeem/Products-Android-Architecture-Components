@@ -28,12 +28,10 @@ class ProductsActivity : AppCompatActivity() {
     }
 
     private fun setUpProductsList() {
-        with(productsRecyclerView) {
-            this.layoutManager = LinearLayoutManager(this@ProductsActivity)
-            this.addItemDecoration(DividerItemDecoration(this@ProductsActivity, DividerItemDecoration.VERTICAL))
-            this.adapter = adapter
-            this.setHasFixedSize(true)
-        }
+        productsRecyclerView.layoutManager = LinearLayoutManager(this)
+        productsRecyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        productsRecyclerView.adapter = adapter
+        productsRecyclerView.setHasFixedSize(true)
     }
 
     private fun setUpProductsListener() {

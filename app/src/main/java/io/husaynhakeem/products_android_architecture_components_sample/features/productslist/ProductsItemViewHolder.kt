@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import io.husaynhakeem.products_android_architecture_components_sample.R
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ProductImage
 import kotlinx.android.synthetic.main.layout_products_item.view.*
 
 class ProductsItemViewHolder(
@@ -26,11 +27,11 @@ class ProductsItemViewHolder(
         renderProductSize(product.size)
     }
 
-    private fun renderProductImage(images: List<String>) {
+    private fun renderProductImage(images: List<ProductImage>) {
         if (images.isEmpty())
             itemView.productsItemImageView.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.ic_no_image))
         else
-            Picasso.get().load(images[0]).into(itemView.productsItemImageView)
+            Picasso.get().load(images[0].url).into(itemView.productsItemImageView)
     }
 
     private fun renderProductName(name: String) {

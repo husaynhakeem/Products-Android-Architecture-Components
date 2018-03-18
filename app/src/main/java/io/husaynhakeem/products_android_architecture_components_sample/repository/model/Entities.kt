@@ -14,5 +14,11 @@ data class Product(
         @SerializedName("brand_name") val brand: String,
         @SerializedName("name") val name: String,
         @SerializedName("size") val size: String,
-        @SerializedName("images") val images: List<String>
+        @SerializedName("images") val images: List<ProductImage>
+)
+
+@Entity
+data class ProductImage(
+        @PrimaryKey(autoGenerate = true) val id: Int,
+        @SerializedName("url") val url: String
 )
