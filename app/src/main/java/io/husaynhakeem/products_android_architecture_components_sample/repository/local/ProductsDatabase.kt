@@ -9,6 +9,8 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import android.content.Context
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ListTypeConverter
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 
 @Database(entities = [(Product::class)], version = 1, exportSchema = false)
 @TypeConverters(ListTypeConverter::class)

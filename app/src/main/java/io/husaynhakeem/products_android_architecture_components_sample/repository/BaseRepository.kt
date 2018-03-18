@@ -5,7 +5,7 @@
 package io.husaynhakeem.products_android_architecture_components_sample.repository
 
 import android.arch.lifecycle.LiveData
-import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 
 interface BaseRepository {
 

@@ -11,7 +11,7 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import io.husaynhakeem.products_android_architecture_components_sample.R
-import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 import kotlinx.android.synthetic.main.activity_products.*
 import org.koin.android.architecture.ext.viewModel
 

@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import io.husaynhakeem.products_android_architecture_components_sample.R
-import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 import kotlinx.android.synthetic.main.layout_products_item.view.*
 
 class ProductsItemViewHolder(

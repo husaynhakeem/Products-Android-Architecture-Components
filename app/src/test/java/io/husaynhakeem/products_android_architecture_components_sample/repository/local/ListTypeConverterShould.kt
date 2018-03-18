@@ -4,6 +4,7 @@
 
 package io.husaynhakeem.products_android_architecture_components_sample.repository.local
 
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ListTypeConverter
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 

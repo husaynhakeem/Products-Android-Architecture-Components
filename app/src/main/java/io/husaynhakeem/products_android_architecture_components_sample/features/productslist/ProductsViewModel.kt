@@ -7,7 +7,7 @@ package io.husaynhakeem.products_android_architecture_components_sample.features
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 import io.husaynhakeem.products_android_architecture_components_sample.repository.ProductsRepository
-import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 
 class ProductsViewModel(repository: ProductsRepository) : ViewModel() {
 

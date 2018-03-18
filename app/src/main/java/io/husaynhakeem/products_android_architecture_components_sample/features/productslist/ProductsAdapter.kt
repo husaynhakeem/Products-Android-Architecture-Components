@@ -4,10 +4,12 @@
 
 package io.husaynhakeem.products_android_architecture_components_sample.features.productslist
 
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import io.husaynhakeem.products_android_architecture_components_sample.R
-import io.husaynhakeem.products_android_architecture_components_sample.repository.local.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
+import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ProductDiffUtilCallback
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsItemViewHolder>() {
 
@@ -22,8 +24,9 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsItemViewHolder>() {
     override fun getItemCount() = products.size
 
     fun updateProducts(products: List<Product>) {
+        val diffResult = DiffUtil.calculateDiff(ProductDiffUtilCallback(this.products, products))
+        diffResult.dispatchUpdatesTo(this)
         this.products.clear()
         this.products.addAll(products)
-        notifyDataSetChanged()
     }
 }
