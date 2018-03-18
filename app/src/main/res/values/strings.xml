@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Products</string>
-    <string name="products_empty_message">No products. Try again later</string>
+
+    <string name="products_empty_message_0">Loading products</string>
+    <string name="products_empty_message_1">Loading products.</string>
+    <string name="products_empty_message_2">Loading products..</string>
+    <string name="products_empty_message_3">Loading products...</string>
+
     <string name="product_item_brand">By %s</string>
     <string name="product_item_size">Size: %s</string>
 </resources>

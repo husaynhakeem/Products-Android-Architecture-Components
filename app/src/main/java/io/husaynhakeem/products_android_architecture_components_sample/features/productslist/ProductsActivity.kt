@@ -18,6 +18,7 @@ class ProductsActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<ProductsViewModel>()
     private val adapter by lazy { ProductsAdapter() }
+    private val countDownTimer by lazy { EmptyProductsMessagesTimer(this, productsEmptyMessageTextView) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,6 @@ class ProductsActivity : AppCompatActivity() {
     private fun setUpProductsList() {
         productsRecyclerView.layoutManager = LinearLayoutManager(this)
         productsRecyclerView.adapter = adapter
-        productsRecyclerView.setHasFixedSize(true)
     }
 
     private fun setUpProductsListener() {
@@ -43,10 +43,17 @@ class ProductsActivity : AppCompatActivity() {
 
     private fun onProductsListEmpty() {
         productsEmptyMessageTextView.visibility = View.VISIBLE
+        countDownTimer.start()
     }
 
     private fun displayProducts(products: List<Product>) {
         productsEmptyMessageTextView.visibility = View.GONE
+        countDownTimer.cancel()
         adapter.updateProducts(products)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        countDownTimer.cancel()
     }
 }
