@@ -23,6 +23,8 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsItemViewHolder>() {
 
     override fun getItemCount() = products.size
 
+    override fun getItemViewType(position: Int) = position
+
     fun updateProducts(products: List<Product>) {
         val diffResult = DiffUtil.calculateDiff(ProductDiffUtilCallback(this.products, products))
         diffResult.dispatchUpdatesTo(this)

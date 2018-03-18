@@ -6,7 +6,7 @@ package io.husaynhakeem.products_android_architecture_components_sample.reposito
 
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ProductImage
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ProductImageListTypeConverter
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 

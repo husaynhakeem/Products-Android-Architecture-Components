@@ -22,7 +22,10 @@ class ProductsRepository(
 
     private fun refreshProducts() {
         executor.execute {
-            remoteRepository.getProducts().value?.toTypedArray()?.let { localRepository.saveProducts(it) }
+            val response = remoteRepository.getProducts().execute()
+            response.body()?.toTypedArray()?.let {
+                localRepository.saveProducts(it)
+            }
         }
     }
 }
