@@ -3,13 +3,18 @@
   -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/darker_grey">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/productsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        tools:listitem="@layout/layout_products_item" />
 
     <TextView
         android:id="@+id/productsEmptyMessageTextView"
@@ -17,6 +22,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:gravity="center"
-        android:text="@string/products_empty_message" />
+        android:text="@string/products_empty_message"
+        android:visibility="gone" />
 
 </FrameLayout>

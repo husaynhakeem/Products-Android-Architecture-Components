@@ -7,7 +7,6 @@ package io.husaynhakeem.products_android_architecture_components_sample.features
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import io.husaynhakeem.products_android_architecture_components_sample.R
@@ -29,7 +28,6 @@ class ProductsActivity : AppCompatActivity() {
 
     private fun setUpProductsList() {
         productsRecyclerView.layoutManager = LinearLayoutManager(this)
-        productsRecyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         productsRecyclerView.adapter = adapter
         productsRecyclerView.setHasFixedSize(true)
     }

@@ -5,5 +5,5 @@
 package io.husaynhakeem.products_android_architecture_components_sample.utilities
 
 
- 
 const val EMPTY = ""
+const val UNAVAILABLE = "Unavailable"
