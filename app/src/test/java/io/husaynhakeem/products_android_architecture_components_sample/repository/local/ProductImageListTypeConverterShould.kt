@@ -27,11 +27,11 @@ class ProductImageListTypeConverterShould {
     }
 
     companion object {
-        private const val ITEMS_AS_STRING = "1,url1,2,url2,3,url3"
+        private const val ITEMS_AS_STRING = "url1,url2,url3"
         private val ITEMS_AS_LIST = listOf(
-                ProductImage(1, "url1"),
-                ProductImage(2, "url2"),
-                ProductImage(3, "url3")
+                ProductImage("url1"),
+                ProductImage("url2"),
+                ProductImage("url3")
         )
     }
 }

@@ -19,6 +19,5 @@ data class Product(
 
 @Entity
 data class ProductImage(
-        @PrimaryKey val id: Int,
-        @SerializedName("url") val url: String
+        @PrimaryKey @SerializedName("url") val url: String
 )
