@@ -32,6 +32,7 @@ class ProductsActivity : AppCompatActivity() {
             this.layoutManager = LinearLayoutManager(this@ProductsActivity)
             this.addItemDecoration(DividerItemDecoration(this@ProductsActivity, DividerItemDecoration.VERTICAL))
             this.adapter = adapter
+            this.setHasFixedSize(true)
         }
     }
 
