@@ -22,7 +22,7 @@ class ProductsRepository(
         return localRepository.getProducts()
     }
 
-    private fun refreshProducts() {
+    fun refreshProducts() {
         if (!connectivityAgent.isDeviceConnectedToInternet())
             return
 

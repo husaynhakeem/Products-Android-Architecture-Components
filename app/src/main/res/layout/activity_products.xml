@@ -14,10 +14,11 @@
         android:background="@color/darker_grey"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
+        android:visibility="gone"
         tools:listitem="@layout/layout_products_item" />
 
     <TextView
-        android:id="@+id/productsEmptyMessageTextView"
+        android:id="@+id/productsLoadingMessageTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/darker_grey"
@@ -25,7 +26,37 @@
         android:text="@string/products_empty_message_0"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        android:textStyle="bold" />
 
+    <LinearLayout
+        android:id="@+id/productsInternetUnavailableContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darker_grey"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/productsInternetUnavailableTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darker_grey"
+            android:gravity="center"
+            android:text="@string/products_internet_unavailable_message"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/productsInternetUnavailableButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/products_internet_unavailable_button" />
+
+    </LinearLayout>
 </FrameLayout>

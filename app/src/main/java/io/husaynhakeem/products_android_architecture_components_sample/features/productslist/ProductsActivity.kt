@@ -18,7 +18,7 @@ class ProductsActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<ProductsViewModel>()
     private val adapter by lazy { ProductsAdapter() }
-    private val countDownTimer by lazy { EmptyProductsMessagesTimer(this, productsEmptyMessageTextView) }
+    private lateinit var countDownTimer: EmptyProductsMessagesTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,48 @@ class ProductsActivity : AppCompatActivity() {
     }
 
     private fun onProductsListEmpty() {
-        productsEmptyMessageTextView.visibility = View.VISIBLE
+        onProductsLoadingStateChanged(ProductsLoadingState.LOADING)
+        setUpLoadingMessage()
+    }
+
+    private fun setUpLoadingMessage() {
+        countDownTimer = EmptyProductsMessagesTimer(this,
+                { productsLoadingMessageTextView.text = it },
+                {
+                    onProductsLoadingStateChanged(ProductsLoadingState.ERROR)
+                    productsInternetUnavailableButton.setOnClickListener {
+                        viewModel.refreshProducts()
+                        onProductsListEmpty()
+                    }
+                }
+        )
         countDownTimer.start()
     }
 
     private fun displayProducts(products: List<Product>) {
-        productsEmptyMessageTextView.visibility = View.GONE
+        onProductsLoadingStateChanged(ProductsLoadingState.LOADED)
         countDownTimer.cancel()
         adapter.updateProducts(products)
+    }
+
+    private fun onProductsLoadingStateChanged(state: ProductsLoadingState) {
+        when (state) {
+            ProductsLoadingState.LOADING -> {
+                productsLoadingMessageTextView.visibility = View.VISIBLE
+                productsInternetUnavailableContainer.visibility = View.GONE
+                productsRecyclerView.visibility = View.GONE
+            }
+            ProductsLoadingState.ERROR -> {
+                productsInternetUnavailableContainer.visibility = View.VISIBLE
+                productsLoadingMessageTextView.visibility = View.GONE
+                productsRecyclerView.visibility = View.GONE
+            }
+            ProductsLoadingState.LOADED -> {
+                productsRecyclerView.visibility = View.VISIBLE
+                productsLoadingMessageTextView.visibility = View.GONE
+                productsInternetUnavailableContainer.visibility = View.GONE
+            }
+        }
     }
 
     override fun onDestroy() {
