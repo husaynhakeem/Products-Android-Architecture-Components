@@ -62,8 +62,8 @@ class ProductsActivity : AppCompatActivity() {
 
     private fun displayProducts(products: List<Product>) {
         onProductsLoadingStateChanged(ProductsLoadingState.LOADED)
-        countDownTimer.cancel()
         adapter.updateProducts(products)
+        if (::countDownTimer.isInitialized) countDownTimer.cancel()
     }
 
     private fun onProductsLoadingStateChanged(state: ProductsLoadingState) {
@@ -88,6 +88,6 @@ class ProductsActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        countDownTimer.cancel()
+        if (::countDownTimer.isInitialized) countDownTimer.cancel()
     }
 }

@@ -9,7 +9,9 @@ import io.husaynhakeem.products_android_architecture_components_sample.repositor
 
 class ProductsViewModel(private val repository: ProductsRepository) : ViewModel() {
 
-    fun getProducts() = repository.getProducts()
+    private val products = repository.getProducts()
+
+    fun getProducts() = products
 
     fun refreshProducts() = repository.refreshProducts()
 }
