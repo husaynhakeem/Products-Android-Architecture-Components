@@ -7,3 +7,5 @@ package io.husaynhakeem.products_android_architecture_components_sample.utilitie
 
 const val EMPTY = ""
 const val UNAVAILABLE = "Unavailable"
+
+const val DEVICE_WIDTH_PER_SPAN_COUNT_UNIT = 400

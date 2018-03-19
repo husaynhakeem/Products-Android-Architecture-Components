@@ -7,10 +7,13 @@ package io.husaynhakeem.products_android_architecture_components_sample.features
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import io.husaynhakeem.products_android_architecture_components_sample.R
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.DEVICE_WIDTH_PER_SPAN_COUNT_UNIT
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.getDeviceWidthInDP
 import kotlinx.android.synthetic.main.activity_products.*
 import org.koin.android.architecture.ext.viewModel
 
@@ -28,7 +31,11 @@ class ProductsActivity : AppCompatActivity() {
     }
 
     private fun setUpProductsList() {
-        productsRecyclerView.layoutManager = LinearLayoutManager(this)
+        val spanCount: Int = getDeviceWidthInDP(this) / DEVICE_WIDTH_PER_SPAN_COUNT_UNIT
+        if (spanCount < 2)
+            productsRecyclerView.layoutManager = LinearLayoutManager(this)
+        else
+            productsRecyclerView.layoutManager = GridLayoutManager(this, spanCount)
         productsRecyclerView.adapter = adapter
     }
 
