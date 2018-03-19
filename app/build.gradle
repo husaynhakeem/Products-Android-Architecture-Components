@@ -33,8 +33,6 @@ dependencies {
     // Koin DI
     implementation "org.koin:koin-android-architecture:$koinversion"
 
-    implementation "android.arch.lifecycle:extensions:1.1.0"
-
     // Room
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     kapt "android.arch.persistence.room:compiler:$roomVersion"
@@ -48,11 +46,11 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$picassoVersion"
 
     // Circular image
-    implementation "de.hdodenhof:circleimageview:2.2.0"
+    implementation "de.hdodenhof:circleimageview:$circularImageVersion"
 
     // Testing
-    testImplementation "junit:junit:4.12"
-    testImplementation "org.mockito:mockito-core:2.8.47"
-    androidTestImplementation "com.android.support.test:runner:1.0.1"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.1"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
 }

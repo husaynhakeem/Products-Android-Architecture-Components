@@ -33,4 +33,9 @@ ext {
     retrofitVersion = '2.3.0'
     picassoVersion = '2.71828'
     okhttpLoggingInterceptorVersion = '3.9.1'
+    circularImageVersion = '2.2.0'
+    junitVersion = '4.12'
+    mockitoVersion = '2.8.47'
+    testRunnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
 }
