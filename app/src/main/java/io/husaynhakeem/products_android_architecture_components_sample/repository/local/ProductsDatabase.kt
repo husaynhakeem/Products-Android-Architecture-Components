@@ -11,6 +11,7 @@ import android.arch.persistence.room.TypeConverters
 import android.content.Context
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ProductImageListTypeConverter
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.PRODUCTS_DATABASE_NAME
 
 @Database(entities = [(Product::class)], version = 1, exportSchema = false)
 @TypeConverters(ProductImageListTypeConverter::class)
@@ -23,10 +24,7 @@ abstract class ProductsDatabase : RoomDatabase() {
         fun instance(context: Context): ProductsDatabase {
             synchronized(ProductsDatabase::class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context,
-                            ProductsDatabase::class.java,
-                            "products.db")
-                            .build()
+                    INSTANCE = Room.databaseBuilder(context, ProductsDatabase::class.java, PRODUCTS_DATABASE_NAME).build()
                 }
                 return INSTANCE!!
             }

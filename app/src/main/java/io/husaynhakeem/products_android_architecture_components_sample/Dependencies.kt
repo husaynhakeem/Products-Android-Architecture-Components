@@ -9,6 +9,7 @@ import io.husaynhakeem.products_android_architecture_components_sample.repositor
 import io.husaynhakeem.products_android_architecture_components_sample.repository.local.ProductsDatabase
 import io.husaynhakeem.products_android_architecture_components_sample.repository.remote.RemoteRepository
 import io.husaynhakeem.products_android_architecture_components_sample.repository.remote.WebService
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.API_BASE_URL
 import io.husaynhakeem.products_android_architecture_components_sample.utilities.ConnectivityAgent
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.applicationContext
@@ -17,8 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
-
-private const val BASE_URL = "https://www.datakick.org/api/"
 
 val repositoryModule = applicationContext {
     bean { ProductsRepository(get(), get(), get(), get()) }
@@ -34,6 +33,6 @@ val repositoryModule = applicationContext {
 }
 
 private fun buildRetrofitInstance() = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(API_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

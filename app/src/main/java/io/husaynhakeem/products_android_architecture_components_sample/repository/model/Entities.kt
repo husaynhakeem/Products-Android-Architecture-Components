@@ -7,17 +7,18 @@ package io.husaynhakeem.products_android_architecture_components_sample.reposito
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.*
 
 @Entity
 data class Product(
-        @PrimaryKey @SerializedName("gtin14") val id: String,
-        @SerializedName("brand_name") var brand: String?,
-        @SerializedName("name") val name: String,
-        @SerializedName("size") var size: String?,
-        @SerializedName("images") val images: List<ProductImage>
+        @PrimaryKey @SerializedName(KEY_PRODUCT_ID) val id: String,
+        @SerializedName(KEY_PRODUCT_BRAND) var brand: String?,
+        @SerializedName(KEY_PRODUCT_NAME) val name: String,
+        @SerializedName(KEY_PRODUCT_SIZE) var size: String?,
+        @SerializedName(KEY_PRODUCT_IMAGES) val images: List<ProductImage>
 )
 
 @Entity
 data class ProductImage(
-        @PrimaryKey @SerializedName("url") val url: String
+        @PrimaryKey @SerializedName(KEY_PRODUCT_IMAGE_URL) val url: String
 )

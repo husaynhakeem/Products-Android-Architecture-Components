@@ -9,11 +9,13 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import io.husaynhakeem.products_android_architecture_components_sample.R
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 import io.husaynhakeem.products_android_architecture_components_sample.utilities.DEVICE_WIDTH_PER_SPAN_COUNT_UNIT
 import io.husaynhakeem.products_android_architecture_components_sample.utilities.getDeviceWidthInDP
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.isNullOrEmpty
 import kotlinx.android.synthetic.main.activity_products.*
 import org.koin.android.architecture.ext.viewModel
 
@@ -31,20 +33,21 @@ class ProductsActivity : AppCompatActivity() {
     }
 
     private fun setUpProductsList() {
-        val spanCount: Int = getDeviceWidthInDP(this) / DEVICE_WIDTH_PER_SPAN_COUNT_UNIT
-        if (spanCount < 2)
-            productsRecyclerView.layoutManager = LinearLayoutManager(this)
-        else
-            productsRecyclerView.layoutManager = GridLayoutManager(this, spanCount)
+        productsRecyclerView.layoutManager = getProductsListLayoutManager()
         productsRecyclerView.adapter = adapter
+    }
+
+    private fun getProductsListLayoutManager(): RecyclerView.LayoutManager {
+        val spanCount: Int = getDeviceWidthInDP() / DEVICE_WIDTH_PER_SPAN_COUNT_UNIT
+        return if (spanCount >= 2) GridLayoutManager(this, spanCount) else LinearLayoutManager(this)
     }
 
     private fun setUpProductsListener() {
         viewModel.getProducts().observe(this, Observer {
-            if (it == null || it.isEmpty())
+            if (it.isNullOrEmpty())
                 onProductsListEmpty()
             else
-                displayProducts(it)
+                displayProducts(it!!)
         })
     }
 

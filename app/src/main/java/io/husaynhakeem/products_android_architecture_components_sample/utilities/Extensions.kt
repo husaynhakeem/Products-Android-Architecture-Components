@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
 
 
-fun getDeviceWidthInDP(activity: AppCompatActivity): Int {
+fun AppCompatActivity.getDeviceWidthInDP(): Int {
     val metrics = DisplayMetrics()
-    activity.windowManager.defaultDisplay.getMetrics(metrics)
+    windowManager.defaultDisplay.getMetrics(metrics)
     return (metrics.widthPixels / metrics.density).toInt()
 }
+
+fun List<Any>?.isNullOrEmpty() = this == null || this.isEmpty()

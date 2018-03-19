@@ -5,14 +5,16 @@
 package io.husaynhakeem.products_android_architecture_components_sample.repository.model
 
 import android.arch.persistence.room.TypeConverter
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.COMMA
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.EMPTY
 
 class ProductImageListTypeConverter {
 
     @TypeConverter
     fun fromListToString(list: List<ProductImage>): String {
-        var result = ""
-        list.forEach { result += "${it.url}," }
-        return result.substringBeforeLast(",")
+        var result = EMPTY
+        list.forEach { result += "${it.url}$COMMA" }
+        return result.substringBeforeLast(COMMA)
     }
 
     @TypeConverter
@@ -20,7 +22,7 @@ class ProductImageListTypeConverter {
         val result = mutableListOf<ProductImage>()
 
         if (!string.isBlank()) {
-            string.split(",").forEach { result += ProductImage(it) }
+            string.split(COMMA).forEach { result += ProductImage(it) }
         }
 
         return result
