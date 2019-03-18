@@ -7,6 +7,7 @@ package io.husaynhakeem.products_android_architecture_components_sample.utilitie
 
 const val EMPTY = ""
 const val COMMA = ","
+const val DASH = "-"
 const val UNAVAILABLE = "Unavailable"
 
 // Local Repository
