@@ -1,6 +1,6 @@
 # Products - Android Architecture Components
 
-This is a sample Android application I developed in order to practice Android Architecture Components. It uses the public [Datakick API](https://www.datakick.org/api).
+This is a sample Android application I developed in order to practice Android Architecture Components. It uses the public [Datakick API](https://www.datakick.org/api). [This article](https://proandroiddev.com/constant-loading-sores-the-eyes-732da88f5ba) I wrote uses this project as a demo.
 
 
 ## Demo
