@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso
 import io.husaynhakeem.products_android_architecture_components_sample.R
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.Product
 import io.husaynhakeem.products_android_architecture_components_sample.repository.model.ProductImage
+import io.husaynhakeem.products_android_architecture_components_sample.utilities.DASH
 import io.husaynhakeem.products_android_architecture_components_sample.utilities.EMPTY
 import io.husaynhakeem.products_android_architecture_components_sample.utilities.UNAVAILABLE
 import kotlinx.android.synthetic.main.layout_products_item.view.*
@@ -23,7 +24,7 @@ class ProductsItemViewHolder(
 
     fun render(product: Product) {
         renderProductImage(product.images)
-        renderProductName(product.name)
+        renderProductName(product.name ?: DASH)
         renderProductBrand(product.brand ?: EMPTY)
         renderProductSize(product.size ?: EMPTY)
     }
